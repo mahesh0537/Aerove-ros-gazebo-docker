@@ -21,4 +21,4 @@ sudo docker run \
   --env DISPLAY=$DISPLAY \
   --env TERM=xterm-256color \
   -v $(pwd):$(pwd) -w $(pwd)\
-  try
+  783ba8c61888

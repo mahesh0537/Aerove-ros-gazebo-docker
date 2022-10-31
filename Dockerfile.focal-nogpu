@@ -23,8 +23,8 @@ RUN ln -fs /usr/share/zoneinfo/Europe/Zagreb /etc/localtime && \
 
 # Install uav_ros_simulation and setup catkin workspace
 # WORKDIR $HOME
-# RUN git clone https://github.com/mahesh0537/Aerove-ros-gazebo-docker.git
-# RUN ./Aerove-ros-gazebo-docker/installation/install_and_setup_workspace.sh $CATKIN_WORKSPACE
+RUN git clone https://github.com/mahesh0537/Aerove-ros-gazebo-docker.git
+RUN ./Aerove-ros-gazebo-docker/ros2.sh
 
 # # Build catkin workspace
 # WORKDIR $HOME/$CATKIN_WORKSPACE/src
