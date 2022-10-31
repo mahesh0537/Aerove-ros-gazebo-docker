@@ -3,7 +3,7 @@
 # Enable access control for GUI 
 xhost +
 
-docker run \
+sudo docker run \
   --gpus all \
   -it \
   --rm \
