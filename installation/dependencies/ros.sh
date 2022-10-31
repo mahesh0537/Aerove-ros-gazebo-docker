@@ -26,8 +26,8 @@ done
 
 sudo apt -y update
 
-[ "$distro" = "18.04" ] && sudo apt -y install ros-melodic-ros-desktop-full
-[ "$distro" = "20.04" ] && sudo apt -y install ros-noetic-ros-desktop-full
+[ "$distro" = "18.04" ] && sudo apt -y install ros-melodic-desktop-full
+[ "$distro" = "20.04" ] && sudo apt -y install ros-noetic-desktop-full
 [ "$distro" = "18.04" ] && ROS_DISTRO="melodic"
 [ "$distro" = "20.04" ] && ROS_DISTRO="noetic"
 
