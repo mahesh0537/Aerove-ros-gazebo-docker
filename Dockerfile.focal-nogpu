@@ -21,21 +21,4 @@ RUN ln -fs /usr/share/zoneinfo/Europe/Zagreb /etc/localtime && \
     keyboard-configuration && \
     dpkg-reconfigure --frontend noninteractive tzdata 
 
-# Install uav_ros_simulation and setup catkin workspace
-# WORKDIR $HOME
-RUN git clone https://github.com/mahesh0537/Aerove-ros-gazebo-docker.git
-RUN ./Aerove-ros-gazebo-docker/ros2.sh
 
-# # Build catkin workspace
-# WORKDIR $HOME/$CATKIN_WORKSPACE/src
-# RUN catkin build --limit-status-rate 0.2
-
-# # Build ardupilot binaries
-# RUN sudo ln -sf /usr/bin/python3 /usr/bin/python
-# WORKDIR $HOME/uav_ros_simulation/firmware/ardupilot
-# RUN modules/waf/waf-light configure --board sitl
-# RUN modules/waf/waf-light build --target bin/arducopter
-
-# # Prepare for startup
-# RUN echo "export PATH=\$HOME/.local/bin:\$PATH" >> $HOME/.bashrc
-# WORKDIR $HOME/uav_ros_simulation/startup/kopterworx_one_flying

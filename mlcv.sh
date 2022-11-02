@@ -20,5 +20,6 @@ sudo docker run \
   --env="XAUTHORITY=${XAUTH}" \
   --env DISPLAY=$DISPLAY \
   --env TERM=xterm-256color \
+  -v /dev/shm:/dev/shm \
   -v $(pwd):$(pwd) -w $(pwd)\
-  783ba8c61888
+  gazebo
