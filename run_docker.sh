@@ -1,20 +1,24 @@
 #!/bin/bash
 
-# Enable access control for GUI 
-xhost +
+XSOCK=/tmp/.X11-unix
+XAUTH=/tmp/.docker.xauth
+touch $XAUTH
+xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
+
+echo "Running Docker Container"
+
 
 sudo docker run \
-  --gpus all \
   -it \
-  --rm \
   --network host \
   --privileged \
-  --volume /dev:/dev \
-  --volume /tmp/.x11-unix:/tmp/.x11-unix \
+  --gpus all \
+  -p 14550:14550 \
+  --volume=$XSOCK:$XSOCK:rw \
+  --volume=$XAUTH:$XAUTH:rw \
+  --env="XAUTHORITY=${XAUTH}" \
   --env DISPLAY=$DISPLAY \
-  --name uav_ros_simulation \
-  lmark1/uav_ros_simulation:focal \
-  /bin/bash
-
-# Disable access control for GUI
-xhost -
+  --env TERM=xterm-256color \
+  -v /dev/shm:/dev/shm \
+  -v $(pwd):$(pwd) -w $(pwd)\
+  ros2
